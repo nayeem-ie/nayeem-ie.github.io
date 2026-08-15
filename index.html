@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moddassir Khan Nayeem — Operations Research</title>
+<meta name="description" content="Moddassir Khan Nayeem — Postdoctoral Scholar, Supply Chain Management, Michigan State University. Stochastic optimization, dynamic pricing, and ability-aware workforce systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+
+<nav class="sidenav" id="sidenav" aria-label="Site navigation">
+  <a class="sidenav-mark" href="index.html">MKN</a>
+  <ul>
+    <li><a href="index.html" class="navlink" data-label="Home">01</a></li>
+    <li><a href="publications.html" class="navlink" data-label="Publications">02</a></li>
+    <li><a href="teaching.html" class="navlink" data-label="Teaching">03</a></li>
+    <li><a href="experience.html" class="navlink" data-label="Experience">04</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- ===== HERO ===== -->
+  <section id="top" class="hero" aria-labelledby="hero-heading">
+    <div class="hero-text">
+      <img src="headshot.jpg" alt="Portrait of Moddassir Khan Nayeem" class="hero-photo">
+      <p class="eyebrow">Operations Research &amp; Supply Chain Analytics</p>
+      <h1 id="hero-heading">Moddassir Khan<br>Nayeem</h1>
+      <p class="hero-sub"><em>Optimizing systems where efficiency meets equity —<br>one ε‑constraint at a time.</em></p>
+      <p class="hero-lede">
+        Postdoctoral Scholar in the Department of Supply Chain Management, Eli Broad College of
+        Business, at <strong>Michigan State University</strong>. PhD in Mechanical Engineering
+        (Industrial &amp; Systems Engineering concentration), University of Texas at San Antonio.
+        My work sits between stochastic optimization and the systems people actually work
+        inside — production lines, pricing shelves, refueling networks, and supply chains
+        under stress.
+      </p>
+      <div class="hero-actions">
+        <a href="publications.html" class="btn btn-primary">See publications</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+
+    <figure class="hero-chart" aria-label="Illustrative Pareto frontier between throughput cost and workforce inclusion">
+      <svg viewBox="0 0 420 340" role="img" aria-hidden="false">
+        <text x="20" y="24" class="chart-title">bi‑objective frontier</text>
+
+        <line x1="60" y1="280" x2="60" y2="30" class="axis-line"/>
+        <line x1="60" y1="280" x2="390" y2="280" class="axis-line"/>
+        <text x="60" y="305" class="axis-label">— cost</text>
+        <text x="392" y="305" class="axis-label" text-anchor="end">cost →</text>
+        <text x="34" y="270" class="axis-label" transform="rotate(-90 34 270)">— inclusion</text>
+        <text x="34" y="45" class="axis-label" transform="rotate(-90 34 45)">inclusion →</text>
+
+        <path id="paretoPath" class="pareto-curve"
+          d="M 80,260 C 140,255 170,230 200,190 C 230,150 250,100 340,55" />
+
+        <circle cx="130" cy="245" r="3.5" class="pt-dominated"/>
+        <circle cx="160" cy="220" r="3.5" class="pt-dominated"/>
+        <circle cx="220" cy="230" r="3.5" class="pt-dominated"/>
+        <circle cx="260" cy="180" r="3.5" class="pt-dominated"/>
+        <circle cx="300" cy="150" r="3.5" class="pt-dominated"/>
+        <circle cx="180" cy="150" r="3.5" class="pt-dominated"/>
+
+        <circle cx="90" cy="255" r="4" class="pt-frontier"/>
+        <circle cx="150" cy="215" r="4" class="pt-frontier"/>
+        <circle cx="245" cy="120" r="4" class="pt-frontier"/>
+        <circle cx="335" cy="58" r="4" class="pt-frontier"/>
+
+        <circle cx="205" cy="185" r="7" class="pt-optimal"/>
+        <line x1="205" y1="185" x2="205" y2="292" class="guide-line"/>
+        <line x1="205" y1="185" x2="48" y2="185" class="guide-line"/>
+        <text x="212" y="178" class="pt-label">ε‑optimal</text>
+      </svg>
+      <figcaption>Illustrative — the trade‑off shape at the heart of ability‑aware assembly line balancing.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ===== RESEARCH ===== -->
+  <section id="research" class="section">
+    <p class="eyebrow">Research</p>
+    <h2>Where the constraints are people, not just parts.</h2>
+    <p class="section-lede">
+      Methodologically: large‑scale deterministic and stochastic optimization, dynamic
+      programming, Markov decision processes, and machine learning including reinforcement
+      learning and LLM applications. Applied to supply chain decision‑making, logistics,
+      inventory management, and energy and smart manufacturing systems.
+    </p>
+
+    <div class="research-grid">
+      <article class="research-card">
+        <p class="card-tag">current — postdoctoral project</p>
+        <h3>Ability‑Aware Stochastic Assembly Line Balancing</h3>
+        <p>
+          A bi‑objective ε‑constraint model that redesigns assembly workflows to balance
+          production efficiency against workforce inclusion under uncertainty — solved via
+          sample average approximation and Benders decomposition. Part of ongoing NSF‑supported
+          work at Michigan State University.
+        </p>
+      </article>
+
+      <article class="research-card">
+        <p class="card-tag">dissertation work</p>
+        <h3>Dynamic Pricing for Perishable Inventory</h3>
+        <p>
+          An exact pricing algorithm for revenue maximization under the logit demand function,
+          and reinforcement‑learning policies for age‑sensitive markdown decisions — presented
+          at INFORMS 2025 and IISE 2026.
+        </p>
+      </article>
+
+      <article class="research-card">
+        <p class="card-tag">infrastructure planning</p>
+        <h3>Alternative‑Fuel Vehicle Station Location</h3>
+        <p>
+          Finite dominating set formulations for refueling station placement, extended to a
+          two‑stage stochastic deployment model for fixed and mobile EV charging under demand
+          uncertainty.
+        </p>
+      </article>
+
+      <article class="research-card">
+        <p class="card-tag">order allocation</p>
+        <h3>Multi‑Item, Multi‑Period Order Allocation</h3>
+        <p>
+          A finite dominating set approach to order allocation under all‑unit quantity discounts
+          and blending ratios, published in the International Journal of Production Economics.
+        </p>
+      </article>
+
+      <article class="research-card">
+        <p class="card-tag">applied OR</p>
+        <h3>Humanitarian &amp; Disaster Logistics</h3>
+        <p>
+          Network design for post‑disaster debris management and robust relief‑distribution and
+          evacuation planning under uncertainty.
+        </p>
+      </article>
+
+      <article class="research-card">
+        <p class="card-tag">methodological base</p>
+        <h3>Robust &amp; Stochastic Optimization</h3>
+        <p>
+          Foundational methods work from my M.Sc. at Pusan National University, underpinning the
+          solution approaches used across the projects above.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== EXPLORE MORE ===== -->
+  <section class="section explore-section">
+    <p class="eyebrow">More</p>
+    <h2>Explore further</h2>
+    <div class="explore-grid">
+      <a href="publications.html" class="explore-card">
+        <p class="card-tag">02</p>
+        <h3>Publications</h3>
+        <p>10 journal articles, 2 book chapters, 5 conference papers, and 2 under review.</p>
+      </a>
+      <a href="teaching.html" class="explore-card">
+        <p class="card-tag">03</p>
+        <h3>Teaching</h3>
+        <p>Courses taught, teaching philosophy, and research mentoring at UTSA, MIST, and AIUB.</p>
+      </a>
+      <a href="experience.html" class="explore-card">
+        <p class="card-tag">04</p>
+        <h3>Experience</h3>
+        <p>Academic timeline, research experience, honors, and service.</p>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="contact">
+  <p class="eyebrow">Contact</p>
+  <ul class="footer-contact">
+    <li><a href="mailto:mknayeem.ie@gmail.com">mknayeem.ie@gmail.com</a></li>
+    <li><a href="https://scholar.google.com/citations?user=6gZgJ9kAAAAJ&hl=en">Google Scholar</a></li>
+    <li><a href="https://www.linkedin.com/in/moddassir-khan-nayeem-074326132">LinkedIn</a></li>
+    <li><a href="cv.pdf">CV (PDF)</a></li>
+  </ul>
+  <p class="footer-note">© <span class="js-year"></span> Moddassir Khan Nayeem.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
