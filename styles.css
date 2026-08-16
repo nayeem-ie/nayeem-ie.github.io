@@ -14,8 +14,6 @@
   --display: "Newsreader", Georgia, serif;
   --body: "IBM Plex Sans", -apple-system, Segoe UI, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
-
-  --side-w: 92px;
 }
 
 * { box-sizing: border-box; }
@@ -60,17 +58,21 @@ a { color: inherit; }
 }
 
 /* ===========================================================
-   Side navigation
+   Top navigation
 =========================================================== */
+:root {
+  --header-h: 72px;
+}
+
 .sidenav {
   position: fixed;
-  top: 0; left: 0; bottom: 0;
-  width: var(--side-w);
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: 28px 0;
-  border-right: 1px solid var(--line);
+  justify-content: space-between;
+  padding: 0 clamp(20px, 5vw, 56px);
+  border-bottom: 1px solid var(--line);
   background: var(--paper);
   z-index: 40;
 }
@@ -82,61 +84,53 @@ a { color: inherit; }
   letter-spacing: 0.08em;
   color: var(--ink);
   text-decoration: none;
-  margin-bottom: 48px;
   border: 1px solid var(--ink);
   border-radius: 50%;
   width: 34px; height: 34px;
   display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
 }
 
 .sidenav ul {
   list-style: none;
   padding: 0; margin: 0;
   display: flex;
-  flex-direction: column;
-  gap: 28px;
-  writing-mode: vertical-rl;
+  align-items: center;
+  gap: clamp(20px, 3vw, 40px);
 }
 
 .navlink {
   font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
   text-decoration: none;
   color: var(--ink-soft);
-  display: flex;
-  align-items: center;
-  gap: 10px;
   transition: color 0.2s ease;
 }
 
-.navlink::after {
-  content: attr(data-label);
-  writing-mode: vertical-rl;
-  text-transform: uppercase;
-}
+.navlink:hover, .navlink:focus-visible { color: var(--accent); }
 
-.navlink:hover, .navlink:focus-visible {
-  color: var(--accent);
-}
-
-.navlink.active {
-  color: var(--ink);
-  font-weight: 500;
-}
-.navlink.active::before {
+.navlink.active { color: var(--ink); font-weight: 500; position: relative; }
+.navlink.active::after {
   content: "";
-  width: 5px; height: 5px;
-  border-radius: 50%;
+  position: absolute;
+  left: 0; right: 0; bottom: -22px;
+  height: 2px;
   background: var(--accent);
-  flex-shrink: 0;
 }
 
 .nav-toggle { display: none; }
 
-/* Footer contact bar — repeated on every page */
+/* ===========================================================
+   Layout
+=========================================================== */
+main {
+  margin-top: var(--header-h);
+  padding: 0 clamp(24px, 6vw, 96px);
+}
+
 .site-footer {
-  margin-left: var(--side-w);
+  margin-top: 0;
   padding: 56px clamp(24px, 6vw, 96px) 64px;
   border-top: 1px solid var(--line);
 }
@@ -168,18 +162,9 @@ a { color: inherit; }
   margin: 0;
 }
 
-@media (max-width: 760px) {
-  .site-footer { margin-left: 0; }
-}
-
 /* ===========================================================
-   Layout
+   Sections
 =========================================================== */
-main {
-  margin-left: var(--side-w);
-  padding: 0 clamp(24px, 6vw, 96px);
-}
-
 .section {
   padding: 96px 0;
   border-bottom: 1px solid var(--line);
@@ -202,15 +187,13 @@ main {
    Hero
 =========================================================== */
 .hero {
-  min-height: 92vh;
+  min-height: 78vh;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 56px;
   padding: 64px 0 48px;
 }
 
-.hero-text { flex: 1 1 420px; max-width: 560px; }
+.hero-text { max-width: 680px; }
 
 .hero-photo {
   width: 108px;
@@ -284,65 +267,6 @@ main {
 .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
 .btn-ghost { background: transparent; color: var(--ink); }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-
-/* ===========================================================
-   Hero chart
-=========================================================== */
-.hero-chart {
-  flex: 1 1 360px;
-  max-width: 440px;
-  margin: 0;
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 20px 20px 14px;
-}
-
-.hero-chart svg { width: 100%; height: auto; display: block; }
-
-.chart-title {
-  font-family: var(--mono);
-  font-size: 11px;
-  fill: var(--ink-soft);
-  letter-spacing: 0.06em;
-}
-
-.axis-line { stroke: var(--ink); stroke-width: 1.2; }
-.axis-label { font-family: var(--mono); font-size: 10px; fill: var(--ink-soft); }
-
-.pareto-curve {
-  fill: none;
-  stroke: var(--teal);
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-dasharray: 420;
-  stroke-dashoffset: 420;
-  animation: draw 1.4s ease forwards 0.3s;
-}
-@keyframes draw { to { stroke-dashoffset: 0; } }
-
-.pt-dominated { fill: var(--line); }
-.pt-frontier { fill: var(--teal); }
-.pt-optimal {
-  fill: var(--accent);
-  stroke: var(--paper-raised);
-  stroke-width: 2.5;
-}
-.guide-line { stroke: var(--accent-soft); stroke-width: 1; stroke-dasharray: 3 3; }
-.pt-label {
-  font-family: var(--mono);
-  font-size: 10px;
-  fill: var(--accent);
-  font-weight: 500;
-}
-
-.hero-chart figcaption {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--ink-soft);
-  margin-top: 8px;
-  line-height: 1.5;
-}
 
 /* ===========================================================
    Research grid
@@ -559,28 +483,18 @@ main {
 /* ===========================================================
    Responsive
 =========================================================== */
-@media (max-width: 760px) {
-  :root { --side-w: 0px; }
+@media (max-width: 700px) {
+  :root { --header-h: 56px; }
 
-  .sidenav {
-    flex-direction: row;
-    top: 0; left: 0; right: 0; bottom: auto;
-    width: 100%;
-    height: 56px;
-    border-right: none;
-    border-bottom: 1px solid var(--line);
-    padding: 0 16px;
-    justify-content: space-between;
-    transform: translateY(0);
-  }
-  .sidenav-mark { margin-bottom: 0; }
+  .sidenav { padding: 0 16px; }
+
   .sidenav ul {
     position: fixed;
     top: 56px; left: 0; right: 0;
     background: var(--paper-raised);
     border-bottom: 1px solid var(--line);
     flex-direction: column;
-    writing-mode: horizontal-tb;
+    align-items: flex-start;
     padding: 18px 20px 26px;
     gap: 18px;
     transform: translateY(-120%);
@@ -588,21 +502,25 @@ main {
     transition: transform 0.25s ease, opacity 0.25s ease;
   }
   .sidenav.open ul { transform: translateY(0); opacity: 1; }
-  .navlink { flex-direction: row-reverse; justify-content: flex-end; font-size: 0.9rem; }
-  .navlink::after { writing-mode: horizontal-tb; opacity: 1; transform: none; content: attr(data-label); }
+  .navlink { font-size: 0.9rem; }
+  .navlink.active::after { bottom: -4px; }
 
   .nav-toggle {
+    position: fixed;
+    top: 0; right: 16px;
+    height: 56px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    width: 26px; height: 26px;
+    width: 26px;
     background: none; border: none; cursor: pointer;
     padding: 0;
+    z-index: 41;
   }
   .nav-toggle span { display: block; height: 2px; background: var(--ink); border-radius: 2px; }
 
-  main { margin-left: 0; margin-top: 56px; padding: 0 20px; }
-  .hero { min-height: auto; padding: 48px 0; }
-  .section { padding: 64px 0; }
+  main { padding: 0 20px; }
+  .hero { min-height: auto; padding: 40px 0; }
+  .section { padding: 56px 0; }
 }
